@@ -1,0 +1,140 @@
+:root {
+  --min-font-size: 16px; /* Minimum font size */
+  --max-font-size: 36px; /* Maximum font size */
+}
+::selection {
+  background: lime;
+  color: #252525;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  padding: 4vw;
+  color: antiquewhite;
+  background: #252525;
+  position: relative;
+  overflow-x: hidden;
+}
+.top-sec {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+img {
+  object-fit: cover;
+  width: min(600px, 100%);
+  height: min(40vh, 400px);
+}
+.top-sec h1 {
+  font-size: calc(
+    16px + 2vw
+  ); /* Adjust the base size (16px) and the scaling factor (1vw) as needed */
+  /* Set any additional styling for your heading */
+  font-family: "Posterama";
+  margin: 1ch 0;
+}
+p {
+  font-size: calc(
+    14px + 0.5vw
+  ); /* Adjust the base size (14px) and the scaling factor (0.5vw) as needed */
+  /* Set any additional styling for your paragraphs */
+  margin: 1ch 0;
+  font-family: "Posterama";
+}
+.top-sec #pawbtn {
+  font-size: 2rem;
+}
+/* #target {
+  width: 200px;
+  height: 200px;
+  background: transparent;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+  position: absolute;
+  border-radius: 50%;
+  backdrop-filter: saturate(180%) hue-rotate(0deg);
+} */
+#painter {
+  display: none;
+  background: #00ff000f;
+}
+#painter.active {
+  display: block;
+  position: absolute;
+  inset: 0;
+  cursor: url(https://unpkg.com/ionicons@7.1.0/dist/svg/paw.svg);
+  cursor: pointer;
+}
+.paw {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+}
+.close #close {
+  width: 100px;
+  height: 100px;
+  font-size: 2rem;
+  position: absolute;
+  left: calc(50% - 50px);
+  bottom: 50px;
+  color: red;
+  cursor: pointer;
+}
+
+/****************** wave ***************/
+.ocean{
+    background: red;
+    height: 100vh;
+    width: 100%;
+    animation: scrolldown 2s ease-in-out forwards;
+    background: linear-gradient(to top,#8fe7e4 0%, #62d2ce 35%, #0d5b72 100%);
+}
+@keyframes scrolldown {
+    0%{
+        transform: translateY(0vh);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+.wave {
+  background: url(https://cdn.kcak11.com/codepen_assets/wave_animation/wave.svg)
+    repeat-x;
+  position: absolute;
+  top: -200px;
+  width: 6400px;
+  height: 198px;
+  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+.wave:nth-of-type(2) {
+  top: -200px;
+  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite,
+    swell 7s ease -1.25s infinite;
+  opacity: 1;
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -1600px;
+  }
+}
+@keyframes swell {
+  0%,
+  100% {
+    transform: translate3d(0, -25px, 0);
+  }
+  50% {
+    transform: translate3d(0, 5px, 0);
+  }
+}
